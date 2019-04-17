@@ -1,13 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
+import Loader from 'react-loader-spinner';
+
 
 import { CharacterList } from "../components";
 import { getChar } from '../actions';
 // import actions
 
 class CharacterListView extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   componentDidMount() {
@@ -19,6 +21,7 @@ class CharacterListView extends React.Component {
   render() {
     if (this.props.fetching) {
       // return something here to indicate that you are fetching data
+      <Loader type="Audio" color="#333" height={80} width={80} />
     }
     return (
       <div className="CharactersList_wrapper">
@@ -32,7 +35,7 @@ class CharacterListView extends React.Component {
 // the characters and the fetching boolean
 
 const mapStateToProps = state => ({
-  characters: state.characters,
+  characters: state.charsReducer.characters,
   fetching: state.fetching
 })
 

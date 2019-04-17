@@ -14,7 +14,7 @@ export const FETCH_DATA_FAILURE = 'FETCH_DATA_FAILURE';
 // remember that now we have controll over our thunk-based action creator
 
 
-export const getChar = dispatch =>{
+export const getChar = () => dispatch =>{
 
     dispatch({type: FETCH_DATA_START});
 
